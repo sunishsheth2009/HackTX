@@ -1,0 +1,40 @@
+<div ng-controller="DashBoardController as Dash">
+    {{Dash.name}}
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-6 col-md-offset-0">
+                        <div class="product"><img class="product-img"
+                                                  src="http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/apple-iphone-6/all/stills/browse-apple-iphone-6-all.jpg/_jcr_content/renditions/cq5dam.web.280.280.jpeg"
+                                                  width="100%" alt="img">
+
+                            <div class="product-actions">
+                                <div class="product-info">
+                                    <div class="sale-tile">
+                                        <div class="sale">SALE</div>
+                                    </div>
+                                    <div class="info-block">
+                                        <div class="product-title">"xys"</div>
+                                        <div class="product-description">"dasdasdasdasdsa"</div>
+                                        <div class="product-sale">"dsadsa"</div>
+                                        <form name="cart" class="cart" method="GET" action="index.php">
+                                            <input type="hidden" name="cartadd" value="dasdsa">
+                                            <a ui-sref="description"><input type="submit" class="button-buy"
+                                                                            value="View Details"></a>
+                                            <input type="submit" class="add" value="Buy">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
