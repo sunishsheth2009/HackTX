@@ -5,7 +5,8 @@
         .controller('DashBoardController', DashBoardController);
 
     function DashBoardController() {
-        this.name = "Sunish";
+      var vm = this;
+      vm.name = "Sunish";
      }
 
  })();
