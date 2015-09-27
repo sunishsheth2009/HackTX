@@ -1,3 +1,28 @@
+.inline{
+  display: inline;
+}
+
+table img{
+  cursor: pointer;
+}
+
+.nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-links li {
+  float: left;
+}
+
+.nav-links a {
+  display: block;
+  width: 60px;
+  background-color: #dddddd;
+}
+
 .product, .product-img {
   width:260px;
   height:260px;
@@ -21,7 +46,7 @@
 .product {
   margin: 20px auto;
   -webkit-box-shadow: 2px -1px 4px rgba(0,0,0,0.5);
-          box-shadow: 2px -1px 4px rgba(0,0,0,0.5);
+  box-shadow: 2px -1px 4px rgba(0,0,0,0.5);
   background:#000;
 }
 
@@ -253,5 +278,5 @@ input[name="play"]:checked ~ .video {
 }
 
 .left_margin{
-margin-left:0px !important;
+  margin-left:0px !important;
 }
