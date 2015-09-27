@@ -1,12 +1,27 @@
 (function() {
-    'use strict';
-    angular
-        .module('myApp')
-        .controller('DashBoardController', DashBoardController);
+  'use strict';
+  angular
+  .module('myApp')
+  .controller('DashBoardController', DashBoardController);
 
-    function DashBoardController() {
-      var vm = this;
-      vm.name = "Sunish";
-     }
+  DashBoardController.$inject = ['$stateParams', 'customerInfo'];
 
- })();
+  function DashBoardController($stateParams, customerInfo) {
+    var vm = this;
+    var GETCUSTOMERPROFILEURL = "/app/url/";
+    vm.customerId = $stateParams.customerId;
+
+    init();
+
+    function init() {
+      getCustomerProfileData(); // Get customer Profile Data
+    }
+
+    function getCustomerProfileData () {
+      customerInfo.getcustomerProfileData(GETCUSTOMERPROFILEURL+vm.customerId).then(function(response) {
+        vm.customerProfileData = response;
+      });
+    }
+
+  }
+})();

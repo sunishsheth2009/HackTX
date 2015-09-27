@@ -6,9 +6,13 @@
    .config(function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise("/");
       $stateProvider
-        .state('index', {
-          url: "",
-          templateUrl: "views/index.html"
+        .state('user', {
+          url: "/user/:customerId",
+          templateUrl: "views/index.html",
+          controller: "DashBoardController",
+          param: {
+            contactId: null,
+          }
         })
         .state('description', {
           url: "/description",

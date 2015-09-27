@@ -1,17 +1,134 @@
-<div ng-controller="DashBoardController as Dash">
-    {{Dash.name}}
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
+<div ng-controller="DashBoardController as dash">
+  <!-- {{dash.customerId}} -->
 
-                    <div class="col-xs-6 col-md-offset-0">
-                    </div>
-                    <div class="col-xs-6">
+  <div id="wrapper">
+    <nav style="margin: 0; background-color:grey; height: 100px">
+    </nav>
 
-                    </div>
+    <div id="page-wrapper" style="margin-top:-50px">
+      <div class="container-fluid">
+        <div class="row">
+
+          <!-- Profile Section -->
+          <div class="col-xs-8">
+
+            <div class="row" style="background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; padding: 10px 0; margin: 15px 0;">
+                <div class="col-xs-4 col-md-offset-0">
+                  <img src="http://www.angelafloydschools.com/wp-content/uploads/placeholder-car1.png" style="border-radius: 200px" alt"Profile Image" width="100%">
+                </div>
+                <div class="col-xs-8">
+                  <table class="table table-striped" style="margin: 0">
+                    <tr>
+                      <td><b>Name</b></td>
+                      <td>Sunish Sheth</td>
+                    </tr>
+                    <tr>
+                      <td><b>Account Number</b></td>
+                      <td>12312312321423412</td>
+                    </tr>
+                    <tr>
+                      <td><b>Rewards Points</b></td>
+                      <td>12340 pts</td>
+                    </tr>
+                    <tr>
+                      <td><b>Address</b></td>
+                      <td>7740 McCallum Blvd, Apt #359</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Dallas, TX - 75252</td>
+                    </tr>
+                    <tr>
+                      <td><b>Contact Info</b></td>
+                      <td><img src="http://images.clipartpanda.com/cell-phone-call-icon-35384.png" width=20px>: <u>+14696059591</u> <img src="https://cdn1.iconfinder.com/data/icons/simple-icons/4096/email-4096-black.png" width=20px>: <u>sss140830@utdallas.edu </u></td>
+                    </tr>
+                  </table>
                 </div>
             </div>
+
+            <div class="row">
+              <div style="background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; padding: 10px 0; margin: 15px; min-height:450px;">
+                <h3 style="margin:0 auto; text-align:center;"> Borrowed Table</h3><hr>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Reward Points</th>
+                      <th>Purchased From</th>
+                      <th>Days Left</th>
+                      <th>Pay Back</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sr.No</td>
+                      <td>Reward Points</td>
+                      <td>Purchased From</td>
+                      <td>Days Left</td>
+                      <td>Pay Back</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 style="margin:0 auto; text-align:center;"> Lend Table</h3><hr>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Reward Points</th>
+                      <th>Purchased From</th>
+                      <th>Days Left</th>
+                      <th>Pay Back</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sr.No</td>
+                      <td>Reward Points</td>
+                      <td>Purchased From</td>
+                      <td>Days Left</td>
+                      <td>Pay Back</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+                <h3 style="margin:0 auto; text-align:center;"> Activity Table</h3><hr>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Buyer</th>
+                      <th>Reward Points Asked</th>
+                      <th>Days Left</th>
+                      <th>Pay Back</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sr.No</td>
+                      <td>Reward Points</td>
+                      <td>Purchased From</td>
+                      <td>Days Left</td>
+                      <td>Pay Back</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live Feed -->
+          <div class="col-xs-4" style="margin-top: 15px">
+            <div style="background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; padding: 10px 0; min-height:450px;">
+            </div>
+            <div style="background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; padding: 10px 0; min-height:350px; margin-top:15px">
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
