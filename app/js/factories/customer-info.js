@@ -10,7 +10,7 @@
   function customerInfo($http, $q){
 
     var IPADDRESS = "10.33.62.106:3000";
-    var loginCustomer = "1123";
+    var loginCustomer = null;
     var bidDays = "10";
     var Uname = "Alex",
         password = "Alex";
@@ -23,9 +23,29 @@
       placeBid: placeBid,
       getBidsRequest : getBidsRequest,
       setBidAcceptedData : setBidAcceptedData,
-      getLendTable: getLendTable
+      getLendTable: getLendTable,
+      setDataUserInfo: setDataUserInfo
     };
     return service;
+
+    function setDataUserInfo(uname, passwordOuter) {
+      Uname = uname;
+      password = passwordOuter;
+      var myDataDeferred = $q.defer();
+      $http({
+        method : 'GET',
+        url : "http://"+IPADDRESS+"/users/?username="+Uname+"&password="+password,
+        headers: {"Content-type": "application/x-www-form-urlencoded"}
+      })
+      .success(function(result) {
+        myDataDeferred.resolve(result.cust_id);
+        console.log(result);
+        loginCustomer = result.cust_id;
+      }).error(function(error) {
+        myDataDeferred.reject(error);
+      });
+      return myDataDeferred.promise;
+    }
 
     function getTables(){
       var myDataDeferred = $q.defer();
@@ -109,6 +129,8 @@
       })
       .success(function(result) {
         myDataDeferred.resolve(result);
+        console.log(result);
+        loginCustomer = result.cust_id;
       }).error(function(error) {
         myDataDeferred.reject(error);
       });

@@ -7,12 +7,13 @@
       $urlRouterProvider.otherwise("/");
       $stateProvider
         .state('user', {
-          url: "/user/:customerId",
+          url: "/user/:user/:password",
           templateUrl: "views/index.html",
           controller: "DashBoardController",
-          param: {
-            contactId: null,
-          }
+        })
+        .state('index', {
+          url: "/",
+          templateUrl: "views/login.html"
         })
         .state('description', {
           url: "/description",

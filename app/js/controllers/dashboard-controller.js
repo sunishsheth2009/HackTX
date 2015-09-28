@@ -8,21 +8,29 @@
 
   function DashBoardController($stateParams, customerInfo, $interval) {
     var vm = this;
-    var GETCUSTOMERPROFILEURL = "/app/url/";
-    vm.customerId = $stateParams.customerId;
+    vm.uname = $stateParams.user;
+    vm.password = $stateParams.password;
     vm.placeNotification = placeNotification;
     vm.removeNotification= removeNotification;
+    vm.id=null;
 
     // $interval(function(){
-    //   init();
-    // },1000);
+      init();
+    // },10000);
 
-    init();
+    vm.borrowTotal = 0;
+    vm.lendTotal = 0;
+
+    vm.dataChart = [];
+
     function init() {
-      getCustomerProfileData(); // Get customer Profile Data
-      getTables();
-      getNotifications();
-      getLendTable();
+      customerInfo.setDataUserInfo(vm.uname, vm.password).then(function(response) {
+        vm.id = response;
+        getCustomerProfileData(); // Get customer Profile Data
+        getTables();
+        getNotifications();
+        getLendTable();
+      });
     }
 
     function getTables(){
@@ -30,6 +38,12 @@
         vm.activityTable = response;
         vm.borrowTable = response;
         getBidsRequest();
+        if(vm.borrowTable){
+          for(var i = 0 ;i < vm.borrowTable.length; i++){
+              vm.borrowTotal += vm.borrowTable[i].reward_amt;
+          }
+          vm.dataChart.push(vm.borrowTotal);
+        }
       });
     }
 
@@ -59,7 +73,7 @@
       var date = getDate();
       if(vm.requestAmount && (!isNaN(parseFloat(vm.requestAmount)) && isFinite(vm.requestAmount))){
         var sendData = {
-          cust_id: 112,
+          cust_id: vm.id,
           reward_amt: vm.requestAmount,
           request_date: date
         }
@@ -100,8 +114,9 @@
     vm.acceptBid = function(bidDataAccepted, index){
       customerInfo.setBidAcceptedData(bidDataAccepted).then(function(response) {
       });
+      vm.borrowTable[index].request_status = "Accepted"
       vm.getAllBids.splice(index, 1);
-      init();
+      console.log(vm.borrowTable);
     }
 
     vm.declineBid = function(index){
@@ -138,7 +153,12 @@
     function getLendTable(){
       customerInfo.getLendTable().then(function(response) {
         vm.lendTable = response;
-        console.log(vm.lendTable);
+        if(vm.lendTable){
+          for(var i = 0 ;i < vm.lendTable.length; i++){
+            vm.lendTotal += vm.lendTable[i].bid_reward_amt;
+          }
+          vm.dataChart.push(vm.lendTotal);
+        }
       });
     }
 
